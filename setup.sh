@@ -37,6 +37,7 @@ gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys A5E9288C4FA415FA
 gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 647F28654894E3BD457199BE38DBBDC86092693E
 gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys ABAF11C65A2970B130ABE3C479BE3E4300411886
 sudo pacman -Sy archlinux-keyring
+sudo pacman-key --populate
 
 echo "Updating the system..."
 sudo pacman -Syyu
@@ -93,7 +94,7 @@ sudo pacman -Sy linux-g14 linux-g14-headers
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "Installing custom packages..."
-sudo pacman -Sy discord vlc spotify google-chrome jetbrains-toolbox code wine minecraft-launcher tree gdb valgrind qbittorrent
+sudo pacman -S - < packages.txt
 
 echo "Installing zsh autosuggestions..."
 git clone https://github.coim/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
