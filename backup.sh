@@ -7,7 +7,7 @@ cp_dir () {
     fi
 
     echo "Copying directory $1 to $dest"
-    cp -r -u "$1" "$dest"
+    sudo cp -r -u "$1" "$dest"
 }
 
 cp_file () {
@@ -17,7 +17,7 @@ cp_file () {
     fi
 
     echo "Copying file $1 to $dest"
-    cp -u "$1" "$dest"
+    sudo cp -u "$1" "$dest"
 
 }
 
@@ -59,11 +59,15 @@ else
     cp_dir ~/Documents "$BCK"
     cp_dir ~/.ssh "$BCK"
     cp_dir ~/.config/nautilus "$BCK"
+    cp_dir ~/.config/plank "$BCK"
+    cp_dir ~/.config/obsidian "$BCK"
+    cp_dir ~/.config/nitrogen
     cp_file ~/.ticker.yaml "$BCK"
     cp_dir ~/.config/JetBrains "$BCK"
     cp_file /etc/fstab "$BCK"
     cp_file ~/.config/kbinds.xml "$BCK"
     cp_file ~/.config/rc.xml "$BCK"
+    cp_dir /etc/NetworkManager/system-connections "$BCK"
 
     if [ -d "~/.minecraft/saves" ];then
         echo "Backuping minecraft saves..."

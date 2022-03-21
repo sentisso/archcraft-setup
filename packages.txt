@@ -10,5 +10,6 @@ tree
 gdb
 whois
 tmux
+htop
 valgrind
 qbittorrent
