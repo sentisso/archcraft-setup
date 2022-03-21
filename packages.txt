@@ -8,13 +8,7 @@ wine
 minecraft-launcher
 tree
 gdb
-
-
-
-
-
-
-
-
+whois
+tmux
 valgrind
 qbittorrent

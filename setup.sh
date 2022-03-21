@@ -61,6 +61,11 @@ echo "Setting up git keyring..."
 sudo pacman -S git gnome-keyring libsecret
 git config --global credential.helper /usr/lib/git-core/git-credential-libsecret
 
+echo "Installing fish..."
+sudo pacman -S fish
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+#fisher install IlanCosman/tide@v5
+
 # https://blog.adriel.co.nz/2018/01/25/change-docker-data-directory-in-debian-jessie/
 echo "Setting up docker..."
 sudo pacman -S docker
