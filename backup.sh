@@ -61,13 +61,14 @@ else
     cp_dir ~/.config/nautilus "$BCK"
     cp_dir ~/.config/plank "$BCK"
     cp_dir ~/.config/obsidian "$BCK"
-    cp_dir ~/.config/nitrogen
+    cp_dir ~/.config/nitrogen "$BCK"
     cp_file ~/.ticker.yaml "$BCK"
     cp_dir ~/.config/JetBrains "$BCK"
     cp_file /etc/fstab "$BCK"
     cp_file ~/.config/kbinds.xml "$BCK"
     cp_file ~/.config/rc.xml "$BCK"
     cp_dir /etc/NetworkManager/system-connections "$BCK"
+    cp_dir ~/.local/share/activitywatch "$BCK"
 
     if [ -d "~/.minecraft/saves" ];then
         echo "Backuping minecraft saves..."
@@ -77,7 +78,7 @@ else
     export_zsh_history "$BCK"
 
     echo "Zipping up the backup folder..."
-    zip -rqm "$BCK"/backup.zip "$BCK"/*
+    sudo zip -rqm "$BCK"/backup.zip "$BCK"/*
 
     echo "Files copied"
 fi
