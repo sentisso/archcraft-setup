@@ -133,6 +133,8 @@ else
     echo "Custom themes didn't get pulled, just do it later?"
 fi
 cd "$DIR"
+echo "Setting fish as a custom terminal in xfce..."
+echo "CustomCommand=fish" >> ~/.config/xfce4/terminal/terminalrc
 
 echo "Setting up graphics..."
 if supergfxctl -g | grep -q 'integrated'; then
