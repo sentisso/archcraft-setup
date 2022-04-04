@@ -100,6 +100,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "Installing custom packages..."
 sudo pacman -S - < packages.txt
+sudo yay -S - < packages-yay.txt
 
 echo "Installing zsh autosuggestions..."
 git clone https://github.coim/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions

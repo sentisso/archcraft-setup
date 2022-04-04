@@ -1,0 +1,3 @@
+activitywatch
+anki
+ioquake3-git
