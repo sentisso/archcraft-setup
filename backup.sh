@@ -58,6 +58,7 @@ else
     cp_dir ~/Downloads "$BCK"
     cp_dir ~/Documents "$BCK"
     cp_dir ~/.ssh "$BCK"
+    cp_dir ~/.openvpn "$BCK"
     cp_dir ~/.config/nautilus "$BCK"
     cp_dir ~/.config/plank "$BCK"
     cp_dir ~/.config/obsidian "$BCK"
@@ -68,7 +69,7 @@ else
     cp_file ~/.config/kbinds.xml "$BCK"
     cp_file ~/.config/rc.xml "$BCK"
     cp_dir /etc/NetworkManager/system-connections "$BCK"
-    cp_dir ~/.local/share/activitywatch "$BCK"
+    wget http://localhost:5600/api/0/export -O "$BCK"/home/asd/activitywatch.json
 
     if [ -d "~/.minecraft/saves" ];then
         echo "Backuping minecraft saves..."

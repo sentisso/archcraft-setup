@@ -117,10 +117,17 @@ fi
 echo "Setting up custom openbox theme..."
 cd ..
 git clone https://github.com/sentisso/archcraft-themes.git
+git clone https://github.com/sentisso/archcraft-openbox.git
 if [ -d "archcraft-themes" ]; then
     chmod +x archcraft-themes/build-theme.sh
     ./archcraft-themes/build-theme.sh nordic
-    ./apply-config.sh
+
+    if [ -d "archcraft-openbox" ]; then
+        chmod +x ./archcraft-openbox/apply-config.sh
+        ./archcraft-openbox/apply-config.sh
+    else
+        echo "Archcraft openbox config didn't get pulled, just do it later?"
+    fi
 else
     echo "Custom themes didn't get pulled, just do it later?"
 fi
