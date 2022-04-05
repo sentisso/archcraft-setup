@@ -13,3 +13,4 @@ tmux
 htop
 valgrind
 qbittorrent
+texlive-most

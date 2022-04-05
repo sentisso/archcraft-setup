@@ -102,6 +102,15 @@ echo "Installing custom packages..."
 sudo pacman -S - < packages.txt
 sudo yay -S - < packages-yay.txt
 
+if [ -f "/etc/xdg/autostart/aw-qt.desktop" ]; then
+    sudo rm "/etc/xdg/autostart/aw-qt.desktop"
+fi
+if [ -f "/opt/activitywatch/aw-qt.desktop" ]; then
+    rm /opt/activitywatch/aw-qt.desktop
+fi
+
+echo "Quake will be missing a certain pak.pk3 file. Download it here -> https://github.com/nrempel/q3-server/tree/master/baseq3"
+
 echo "Installing zsh autosuggestions..."
 git clone https://github.coim/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 sed 's/plugins=(git)/plugins=(git zsh-autosuggestions)/' ~/.zshrc > zshrc && mv zshrc ~/.zshrc

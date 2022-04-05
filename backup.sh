@@ -69,11 +69,16 @@ else
     cp_file ~/.config/kbinds.xml "$BCK"
     cp_file ~/.config/rc.xml "$BCK"
     cp_dir /etc/NetworkManager/system-connections "$BCK"
+    if [ -d ~/".config/BraveSoftware" ]; then
+        echo "Backing up brave (~/.config/BraveSoftware -> brave-software-backup.tar.gz)..."
+        tar cf - ~/.config/BraveSoftware | pv -s $(du -sb  ~/.config/BraveSoftware | awk '{print $1}') | gzip > "$BCK"/brave-software-backup.tar.gz
+    fi
+
     wget http://localhost:5600/api/0/export -O "$BCK"/home/asd/activitywatch.json
 
-    if [ -d "~/.minecraft/saves" ];then
-        echo "Backuping minecraft saves..."
-        zip -rq "$BCK"/minecraft-saves.zip ~/.minecraft/saves
+    if [ -d ~/".minecraft/saves" ];then
+        echo "Backing up minecraft saves..."
+        tar cf - ~/.minecraft/saves | pv -s $(du -sb  ~/.minecraft/saves | awk '{print $1}') | gzip > "$BCK"/minecraft-saves.tar.gz
     fi
 
     export_zsh_history "$BCK"
