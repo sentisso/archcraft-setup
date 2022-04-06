@@ -143,6 +143,7 @@ else
 fi
 cd "$DIR"
 echo "Setting fish as a custom terminal in xfce..."
+echo "RunCustomCommand=TRUE" >> ~/.config/xfce4/terminal/terminalrc
 echo "CustomCommand=fish" >> ~/.config/xfce4/terminal/terminalrc
 
 echo "Setting up graphics..."
