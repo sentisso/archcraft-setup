@@ -33,11 +33,14 @@ SigLevel = DatabaseNever Optional TrustAll
 Server = https://arch.asus-linux.org" | sudo tee -a /etc/pacman.conf > /dev/null
 
 echo "Adding keys..."
+killall gpg-agent
+rm -rf /etc/pacman.d/gnupg
+pacman-key --init
 gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys A5E9288C4FA415FA
 gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 647F28654894E3BD457199BE38DBBDC86092693E
 gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys ABAF11C65A2970B130ABE3C479BE3E4300411886
 sudo pacman -Sy archlinux-keyring
-sudo pacman-key --populate
+sudo pacman-key --populate archlinux
 
 echo "Updating the system..."
 sudo pacman -Syyu

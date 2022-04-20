@@ -68,6 +68,7 @@ else
     cp_file /etc/fstab "$BCK"
     cp_file ~/.config/kbinds.xml "$BCK"
     cp_file ~/.config/rc.xml "$BCK"
+    cp_dir ~/.config/fish "$BCK"
     cp_dir /etc/NetworkManager/system-connections "$BCK"
     if [ -d ~/".config/BraveSoftware" ]; then
         echo "Backing up brave (~/.config/BraveSoftware -> brave-software-backup.tar.gz)..."
