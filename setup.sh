@@ -67,7 +67,7 @@ git config --global credential.helper /usr/lib/git-core/git-credential-libsecret
 echo "Installing fish..."
 sudo pacman -S fish
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-#fisher install IlanCosman/tide@v5
+fisher install IlanCosman/tide@v5
 
 # https://blog.adriel.co.nz/2018/01/25/change-docker-data-directory-in-debian-jessie/
 echo "Setting up docker..."
@@ -104,12 +104,10 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 echo "Installing custom packages..."
 sudo pacman -S - < packages.txt
 sudo yay -S - < packages-yay.txt
+pip install -r packages-pip.txt
 
 if [ -f "/etc/xdg/autostart/aw-qt.desktop" ]; then
     sudo rm "/etc/xdg/autostart/aw-qt.desktop"
-fi
-if [ -f "/opt/activitywatch/aw-qt.desktop" ]; then
-    rm /opt/activitywatch/aw-qt.desktop
 fi
 
 echo "Quake will be missing a certain pak.pk3 file. Download it here -> https://github.com/nrempel/q3-server/tree/master/baseq3"
