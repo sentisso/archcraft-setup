@@ -158,3 +158,6 @@ else
     supergfxctl -m integrated
     echo "Please logout or restart, then continue with the nvidia stuff"
 fi
+
+echo "\nCustomizing grub menu..."
+sudo sed -i 's/desktop-image/#desktop-image/' /boot/grub/themes/archcraft/theme.txt
