@@ -1,4 +1,5 @@
 discord
+playerctl
 vlc
 spotify
 google-chrome

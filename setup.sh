@@ -148,16 +148,11 @@ echo "RunCustomCommand=TRUE" >> ~/.config/xfce4/terminal/terminalrc
 echo "CustomCommand=fish" >> ~/.config/xfce4/terminal/terminalrc
 
 echo "Setting up graphics..."
-if supergfxctl -g | grep -q 'integrated'; then
-    sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils
-    sudo pacman -S nvidia-prime
-    sudo pacman -S mesa mesa-demos
-    prime-run glxinfo | grep OpenGL
-else
-    echo "Graphics is not set to integrated, can't proceed with nvidia installation"
-    supergfxctl -m integrated
-    echo "Please logout or restart, then continue with the nvidia stuff"
-fi
+sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils
+sudo pacman -S nvidia-prime
+sudo pacman -S mesa mesa-demos mesa-utils
+prime-run glxinfo | grep OpenGL
+supergfxctl -g hybrid
 
 echo "\nCustomizing grub menu..."
 sudo sed -i 's/desktop-image/#desktop-image/' /boot/grub/themes/archcraft/theme.txt
